@@ -117,13 +117,15 @@
             text-transform: uppercase;
         }
 
+        /* Исправленные стили для селекта */
         .controls select {
-            background: rgba(255, 255, 255, 0.1);
-            color: #FFFFFF;
+            background: rgba(0, 0, 0, 0.6); /* Темный фон для лучшего контраста */
+            color: #FFFFFF; /* Белый текст */
+            padding: 12px 20px; /* Немного уменьшенные отступы для лучшего соответствия */
         }
 
         .controls select:hover, .controls select:focus {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.8); /* Более темный фон при наведении */
             outline: none;
             box-shadow: 0 0 10px rgba(255,255,255,0.2);
         }
