@@ -12,14 +12,15 @@
         }
 
         body {
-            background-color: #1E1E1E;
+            background: linear-gradient(135deg, #1E1E1E 0%, #3A3A3A 100%);
             color: #FFFFFF;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            overflow: hidden;
         }
 
         .container {
@@ -36,8 +37,11 @@
         }
 
         .header h1 {
-            font-size: 2em;
+            font-size: 2.5em;
             color: #FFC107;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeInDown 1s ease-in-out;
         }
 
         .textarea-container {
@@ -47,7 +51,7 @@
             flex-wrap: wrap;
             justify-content: center;
             overflow: hidden;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
         }
 
         .textarea-wrapper {
@@ -55,33 +59,37 @@
             min-width: 300px;
             display: flex;
             flex-direction: column;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .textarea-wrapper h3 {
             margin-bottom: 10px;
-            font-size: 1.2em;
+            font-size: 1.4em;
             color: #FFC107;
             text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         textarea {
             flex: 1;
-            background-color: #2C2C2C;
+            background: rgba(255, 255, 255, 0.1);
             color: #FFFFFF;
-            border: none;
+            border: 2px solid #FFC107;
             padding: 15px;
             resize: none;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 14px;
-            border-radius: 8px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
-            transition: background-color 0.3s, color 0.3s;
-            height: 100%; /* Позволяет textarea занимать всю доступную высоту */
+            font-size: 16px;
+            border-radius: 12px;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+            transition: background 0.3s, color 0.3s, border 0.3s;
+            height: 100%;
         }
 
         textarea:focus {
             outline: none;
-            background-color: #3A3A3A;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #FFFFFF;
         }
 
         .controls {
@@ -91,58 +99,67 @@
             justify-content: center;
             align-items: center;
             padding: 20px 0;
-            background-color: #2C2C2C;
-            border-radius: 8px;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-in-out;
         }
 
         .controls select, .controls button {
-            padding: 12px 20px;
+            padding: 14px 25px;
             border: none;
-            border-radius: 8px;
-            font-size: 14px;
+            border-radius: 30px;
+            font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .controls select {
-            background-color: #3A3A3A;
+            background: rgba(255, 255, 255, 0.1);
             color: #FFFFFF;
         }
 
         .controls select:hover, .controls select:focus {
-            background-color: #4E4E4E;
+            background: rgba(255, 255, 255, 0.2);
+            outline: none;
+            box-shadow: 0 0 10px rgba(255,255,255,0.2);
         }
 
         .controls button {
             color: #FFFFFF;
+            background: linear-gradient(45deg, #FF5722, #FFC107);
+        }
+
+        .controls button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 87, 34, 0.5);
         }
 
         .process {
-            background-color: #4CAF50;
+            background: linear-gradient(45deg, #4CAF50, #8BC34A);
         }
 
         .process:hover {
-            background-color: #45A049;
-            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(76, 175, 80, 0.5);
         }
 
         .copy {
-            background-color: #2196F3;
+            background: linear-gradient(45deg, #2196F3, #03A9F4);
         }
 
         .copy:hover {
-            background-color: #1E88E5;
-            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(33, 150, 243, 0.5);
         }
 
         .paste {
-            background-color: #FF5722;
+            background: linear-gradient(45deg, #9C27B0, #E91E63);
         }
 
         .paste:hover {
-            background-color: #F4511E;
-            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(156, 39, 176, 0.5);
         }
 
         @media (max-width: 1024px) {
@@ -168,7 +185,7 @@
 
         @media (max-width: 480px) {
             .header h1 {
-                font-size: 1.5em;
+                font-size: 1.8em;
             }
 
             .controls {
@@ -177,20 +194,38 @@
             }
 
             .controls select, .controls button {
-                padding: 10px 15px;
-                font-size: 12px;
+                padding: 12px 20px;
+                font-size: 14px;
             }
 
             .textarea-wrapper h3 {
-                font-size: 1em;
+                font-size: 1.2em;
             }
 
             textarea {
-                padding: 10px;
-                font-size: 12px;
+                padding: 12px;
+                font-size: 14px;
             }
         }
+
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
+    <!-- Подключение шрифта Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -341,7 +376,8 @@
             try {
                 const clipboardText = await navigator.clipboard.readText();
                 if (clipboardText) {
-                    inputField.value += clipboardText;
+                    inputField.value = clipboardText;
+                    outputField.value = '';
                 } else {
                     alert("Буфер обмена пуст или содержит неверные данные");
                 }
