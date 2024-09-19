@@ -373,8 +373,12 @@
                 uniqueMatches = Array.from(new Set(matches)).sort();
             }
 
-            // Заполняем поле вывода
-            outputField.value = uniqueMatches.join(',\n');
+            // Формируем выходной текст с запятой после последнего элемента
+            if (uniqueMatches.length > 0) {
+                outputField.value = uniqueMatches.join(',\n') + ',';
+            } else {
+                outputField.value = '';
+            }
         }
 
         // Функция для обработки текста
